@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* === CSS TYPOGRAPHY === */
+
+h1 {
+    font-family: 'Cormorant Upright', serif;
+    color: #fff;
+    font-size: 2em;
+    text-align: center;
+    padding-top: 25px;
+}
+
+
+/* === CSS BACKGROUND === */
+
+
+/* === CSS CLASSES === */
+
+#header-style {}
+
+.primary-color {
+    background-color: #303F9F;
+    height: 150px;
+}
+
+
+/* === CSS IDS === */
+
+
+/* === CSS MEDIA QUERIES === */
+
+@media (min-width: 600px) {
+    h1 {
+        font-size: 4em;
+    }
+    .search-components {
+        text-align: center;
+    }
+}
+
+
+/* === CSS BOX MODEL === */
