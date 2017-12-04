@@ -10,7 +10,7 @@
 h1 {
     font-family: 'Cormorant Upright', serif;
     color: #fff;
-    font-size: 2em;
+    font-size: 2.2em;
     text-align: center;
     padding-top: 25px;
     /*remove white space at the top due to a top margin.
@@ -18,7 +18,18 @@ h1 {
     margin:0;
 }
 
+button {
+  background-color: #FF4081;
+  color: #fff;
+  font-size: 1.3em;
+  padding: 2px 15px;
+  margin-top: 15px;
+  border-radius: 3px;
+  border: 2px solid #FF4081;
+  transition: 0.3s all ease-in-out;
 
+
+}
 /* === CSS BACKGROUND === */
 input {
   border: 3px solid #303F9F;
@@ -36,10 +47,13 @@ input {
 
 .primary-color {
     background-color: #303F9F;
-    height: 125px;
+    height: 75px;
 }
 
-
+.search-components {
+  text-align: center;
+  margin-top: 50px;
+}
 /* === CSS IDS === */
 
 
@@ -49,21 +63,13 @@ input {
     h1 {
         font-size: 4em;
     }
-    .search-components {
-        text-align: center;
-        margin-top: 50px;
-    }
+
 
     button {
-      margin-top: 15px;
-      background-color: #FF4081;
-      color: #fff;
-      font-size: 1.3em;
-      padding: 2px 15px;
-      padding-top: 2px;
-      border-radius: 3px;
-      border: 2px solid #FF4081;
-      transition: 0.3s all ease-in-out;
+
+
+      font-size: 1.5em;
+
     }
 
     .query-item p {
@@ -81,8 +87,9 @@ input {
 .query-item {
   margin-top: 30px;
   background-color: #303F9F;
-  padding:10px 30px;
+  padding:5px 30px 10px 30px;
   color: #fff;
+  position: relative;
 }
 
 .query-item h2 {
@@ -94,13 +101,29 @@ input {
 .query-item p {
   text-align: center;
   margin-bottom:0;
-  margin-top:5px;
+  margin-top:10px;
   font-weight: 400;
 }
 
 
+/* === CSS POSITIONING === */
+.left-pink-block {
+  position: absolute;
+  top:0;
+  left: 0px;
+  height: 106px;
+  width: 10px;
+  background-color: #FF4081;
+}
 
-
+.right-pink-block {
+  position: absolute;
+  top:0;
+  right: 0px;
+  height: 106px;
+  width: 10px;
+  background-color: #FF4081;
+}
 /* === CSS PSUEDOCLASSES & PSEUDOELEMENTS === */
 button:hover {
   background-color: #fff;
