@@ -10,7 +10,7 @@
 h1 {
     font-family: 'Cormorant Upright', serif;
     color: #fff;
-    font-size: 2.2em;
+    font-size: 2.4em;
     text-align: center;
     padding-top: 25px;
     /*remove white space at the top due to a top margin.
@@ -26,9 +26,13 @@ button {
   margin-top: 15px;
   border-radius: 3px;
   border: 2px solid #FF4081;
-  transition: 0.3s all ease-in-out;
+  transition: .4s all ease-in-out;
 
 
+}
+
+.query-item p {
+  font-size: 1.2em;
 }
 /* === CSS BACKGROUND === */
 input {
@@ -38,6 +42,7 @@ input {
   width:250px;
   color: #303F9F;
   font-size: 1.5em;
+  transition: .3s all ease-in-out;
 }
 
 
@@ -47,7 +52,7 @@ input {
 
 .primary-color {
     background-color: #303F9F;
-    height: 110px;
+    height: 85px;
 }
 
 .search-components {
@@ -58,23 +63,35 @@ input {
 
 
 /* === CSS MEDIA QUERIES === */
+@media (min-width: 500px) {
+  h1 {
+    font-size: 2.7em;
+  }
 
-@media (min-width: 600px) {
+  .query-item p {
+    font-size: 1.4em;
+  }
+
+  input {
+    width: 300px;
+  }
+
+  button {
+    font-size: 1.5em;
+  }
+}
+@media (min-width: 700px) {
     h1 {
         font-size: 4em;
     }
 
+.primary-color {
+  height: 110px;
+}
 
-    button {
 
 
-      font-size: 1.5em;
 
-    }
-
-    .query-item p {
-      font-size: 1.2em;
-    }
 }
 
 
@@ -85,7 +102,7 @@ input {
 }
 
 .query-item {
-  margin-top: 30px;
+  margin-top: 50px;
   background-color: #303F9F;
   padding:5px 30px 15px 30px;
   color: #fff;
