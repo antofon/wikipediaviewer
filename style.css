@@ -87,47 +87,71 @@ input {
 .query-item {
   margin-top: 30px;
   background-color: #303F9F;
-  padding:5px 30px 10px 30px;
+  padding:5px 30px 15px 30px;
   color: #fff;
   position: relative;
+  transition: .4s all ease-in-out
 }
 
 .query-item h2 {
   text-align: center;
   margin:0;
   font-weight: 600;
+  padding:10px;
 }
+
+
+/*u {
+    text-decoration: none;
+    position: relative;
+}
+u:after {
+    content: '';
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 1px;
+    /*border-width: 0 0 1px;
+    border-style: solid;
+    border-color: #fff;
+    border: 1px solid #fff;
+}*/
 
 .query-item p {
   text-align: center;
   margin-bottom:0;
-  margin-top:10px;
+  margin-top:8px;
   font-weight: 400;
 }
 
 
 /* === CSS POSITIONING === */
-.left-pink-block {
+/*.left-pink-block {
   position: absolute;
-  top:0;
+  top:53px;
   left: 0px;
-  height: 106px;
+  height: 20px;
   width: 10px;
   background-color: #FF4081;
 }
 
 .right-pink-block {
   position: absolute;
-  top:0;
+  top:53px;
   right: 0px;
-  height: 106px;
+  height: 20px;
   width: 10px;
   background-color: #FF4081;
-}
+}*/
 /* === CSS PSUEDOCLASSES & PSEUDOELEMENTS === */
 button:hover {
   background-color: #fff;
   border: 2px solid #FF4081;
   color: #FF4081;
+}
 
+.query-item:hover {
+  background-color: #FF4081;
+  color: #fff;
+  cursor: pointer;
 }
