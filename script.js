@@ -8,7 +8,14 @@ $(document).ready(function() {
   var prefixURL =  "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&titles=";
   var whitespaceRegex = /\s+/g;
 
-$("#search-button").click(function(json){
+  function parseQuery (wikiURL) {
+    $.getJSON(wikiURL, {format: 'json'}, function(json, textStatus) {
+          console.log(json.query.normalized[0].from)/*optional stuff to do after success */
+      });
+  }
+
+
+$("#search-button").click(function(){
   //grab value entered in search field
   searchVal = $("#input-value").val();
 
@@ -20,7 +27,7 @@ $("#search-button").click(function(json){
 
     wikiURL = prefixURL + searchVal;
     console.log("The wiki string is: " + wikiURL);
-    console.log(json.query);
+    parseQuery(wikiURL);
   }
 
   else {
@@ -35,25 +42,29 @@ $('#input-value').keypress(function(event) {
   }
 });
 
+//CORS HELP
+// https://www.mediawiki.org/wiki/API:Cross-site_requests
 
-$.ajax({
-  url: 'https://en.wikipedia.org/w/api.php?',
-  type: 'GET',
-  dataType: 'json',
 
-})
-.done(function() {
-  console.log("success");
-  $.getJSON(wikiURL, function(json, textStatus) {
-      console.log(json.query)/*optional stuff to do after success */
-  });
-})
-.fail(function() {
-  console.log("error");
-})
-.always(function() {
-  console.log("complete");
-});
+
+// $.ajax({
+//   url: 'https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&rvprop=content&json=?&titles=' + searchVal,
+//   type: 'GET',
+//   dataType: 'json',
+//
+// })
+// .done(function() {
+//   console.log("success");
+//   $.getJSON(wikiURL, function(json, textStatus) {
+//       console.log(json.query)/*optional stuff to do after success */
+//   });
+// })
+// .fail(function() {
+//   console.log("error");
+// })
+// .always(function() {
+//   console.log("complete");
+// });
 
 
 
