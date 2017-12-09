@@ -8,7 +8,7 @@ $(document).ready(function() {
   var prefixURL =  "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&titles=";
   var whitespaceRegex = /\s+/g;
 
-$("#search-button").on("click", function(){
+$("#search-button").click(function(){
   //grab value entered in search field
   searchVal = $("#input-value").val();
 
@@ -27,6 +27,14 @@ $("#search-button").on("click", function(){
   }
 
 });
+
+$('#input-value').keypress(function(event) {
+  if(event.which === 13) {
+    $("#search-button").click();
+  }
+});
+
+
 
 
 
