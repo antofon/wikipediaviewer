@@ -8,7 +8,7 @@ $(document).ready(function() {
   var prefixURL =  "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&titles=";
   var whitespaceRegex = /\s+/g;
 
-$("#search-button").click(function(){
+$("#search-button").click(function(json){
   //grab value entered in search field
   searchVal = $("#input-value").val();
 
@@ -20,6 +20,7 @@ $("#search-button").click(function(){
 
     wikiURL = prefixURL + searchVal;
     console.log("The wiki string is: " + wikiURL);
+    console.log(json.query);
   }
 
   else {
@@ -35,17 +36,17 @@ $('#input-value').keypress(function(event) {
 });
 
 
-
-
-
 $.ajax({
-  url: wikiURL,
+  url: 'https://en.wikipedia.org/w/api.php?',
   type: 'GET',
   dataType: 'json',
+
 })
-.done(function(json) {
+.done(function() {
   console.log("success");
-  console.log(json);
+  $.getJSON(wikiURL, function(json, textStatus) {
+      console.log(json.query)/*optional stuff to do after success */
+  });
 })
 .fail(function() {
   console.log("error");
@@ -53,6 +54,25 @@ $.ajax({
 .always(function() {
   console.log("complete");
 });
+
+
+
+
+// $.ajax({
+//   url: wikiURL,
+//   type: 'GET',
+//   dataType: 'json',
+// })
+// .done(function(json) {
+//   console.log("success");
+//   console.log(json);
+// })
+// .fail(function() {
+//   console.log("error");
+// })
+// .always(function() {
+//   console.log("complete");
+// });
 
 // $.ajax({
 //   url: 'https://en.wikipedia.org/w/api.php?format=json&action=query&',
