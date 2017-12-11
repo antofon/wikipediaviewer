@@ -31,6 +31,20 @@ button {
 
 }
 
+.capitalize {
+  text-transform: capitalize;
+}
+
+a {
+  color: white;
+  text-decoration: underline;
+  transition: 0.2s all ease-in-out;
+}
+
+a:hover {
+  color: #303F9F;
+}
+
 .query-item p {
   font-size: 1.2em;
 }
