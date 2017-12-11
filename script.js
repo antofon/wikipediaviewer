@@ -4,7 +4,8 @@ $(document).ready(function() {
   var searchVal = "";
   //used for the final URL
   var wikiURL = "";
-  // used to create beginning of URL
+  /* used to create beginning of URL. action=parse [Parses content and returns parser output], prop=text [the property you want to get is the text], page=
+[parses the content of a particular page.]*/
   var prefixURL =  "https://en.wikipedia.org/w/api.php?format=json&action=parse&prop=text&page=";
   var whitespaceRegex = /\s+/g;
   var totalSummary = "";
@@ -30,18 +31,13 @@ $("#search-button").click(function(){
     .done(function(response) {
       console.log("success");
       //print query data upon successful AJAX request.
-      //since the numbers (really pageid) are arbitrary with each new seach, use for in statement to iterate over object's properties.
-      for(var key in response.parse.text){
-      console.log(key);
+
       //go in and access ALL content related to search. printing out the wikiURL var and viewing the JSON was helpful in determining how to access content
       totalSummary = response.parse.text["*"];
 
-      }
-
-        // console.log(summary);
+      //split at first p tag to capture the first paragraph of the user search
       parsedSummary = totalSummary.split("<p>");
 
-      console.log(parsedSummary[1] + ".");
       $("#replaceText").html(parsedSummary[1]);
       $("#replaceTitle").addClass('capitalize').html(searchVal);
     })
