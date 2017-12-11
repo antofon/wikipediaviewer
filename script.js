@@ -5,8 +5,9 @@ $(document).ready(function() {
   //used for the final URL
   var wikiURL = "";
   // used to create beginning of URL
-  var prefixURL =  "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revisions&rvprop=content&titles=";
+  var prefixURL =  "https://en.wikipedia.org/w/api.php?format=json&action=parse&prop=text&page=";
   var whitespaceRegex = /\s+/g;
+  var summary = "";
 
 $("#search-button").click(function(){
   //grab value entered in search field
@@ -29,11 +30,17 @@ $("#search-button").click(function(){
       console.log("success");
       //print query data upon successful AJAX request.
       //since the numbers (really pageid) are arbitrary with each new seach, use for in statement to iterate over object's properties.
-      for(var key in response.query.pages){
+      for(var key in response.parse.text){
       console.log(key);
       //go in and access ALL content related to search. printing out the wikiURL var and viewing the JSON was helpful in determining how to access content
-      console.log(response.query.pages[key].revisions[0]["*"]);
+      summary = response.parse.text["*"];
+
       }
+
+        // console.log(summary);
+      summary.split("hello");
+
+      console.log(summary[0] + ".");
     })
     .fail(function() {
       console.log("error");
