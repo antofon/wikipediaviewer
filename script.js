@@ -7,7 +7,8 @@ $(document).ready(function() {
   // used to create beginning of URL
   var prefixURL =  "https://en.wikipedia.org/w/api.php?format=json&action=parse&prop=text&page=";
   var whitespaceRegex = /\s+/g;
-  var summary = "";
+  var totalSummary = "";
+  var parsedSummary = "";
 
 $("#search-button").click(function(){
   //grab value entered in search field
@@ -33,14 +34,16 @@ $("#search-button").click(function(){
       for(var key in response.parse.text){
       console.log(key);
       //go in and access ALL content related to search. printing out the wikiURL var and viewing the JSON was helpful in determining how to access content
-      summary = response.parse.text["*"];
+      totalSummary = response.parse.text["*"];
 
       }
 
         // console.log(summary);
-      summary.split("hello");
+      parsedSummary = totalSummary.split("<p>");
 
-      console.log(summary[0] + ".");
+      console.log(parsedSummary[1] + ".");
+      $("#replaceText").html(parsedSummary[1]);
+      $("#replaceTitle").addClass('capitalize').html(searchVal);
     })
     .fail(function() {
       console.log("error");
