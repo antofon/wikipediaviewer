@@ -11,6 +11,7 @@ $(document).ready(function() {
   var whitespaceRegex = /\s+/g;
   var totalSummary = "";
   var parsedSummary = "";
+  var whitespaceSearchVal = "";
 
 $("#search-button").click(function(){
   //grab value entered in search field
@@ -18,10 +19,10 @@ $("#search-button").click(function(){
 
   //if input field not empty, execute code
   if(searchVal !== "") {
-    //replace any whitespace in input value with an equivalent percent-encoding value of '%20', reassign it to the search value. will be used to construct query string's URL
-    searchVal = searchVal.replace(whitespaceRegex,"%20");
+    //replace any whitespace in input value with an equivalent percent-encoding value of '%20', reassign it to the new var value. will be used to construct query string's URL, while original searchVal var will be injected back in HTML as the query title
+    whitespaceSearchVal = searchVal.replace(whitespaceRegex,"%20");
 
-    wikiURL = prefixURL + searchVal;
+    wikiURL = prefixURL + whitespaceSearchVal;
     console.log("The wiki string is: " + wikiURL);
     //upon search click event/enter, construct wikiURL to make AJAX HTTP GET request. Use jsonp as dataType to get through CORS policy since the domain I'm on and the domain I'm requesting from are different.
     $.ajax({
