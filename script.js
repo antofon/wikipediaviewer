@@ -7,6 +7,7 @@ $(document).ready(function() {
   /* used to create beginning of URL. action=parse [Parses content and returns parser output], prop=text [the property you want to get is the text], page=
 [parses the content of a particular page.]*/
   var prefixURL =  "https://en.wikipedia.org/w/api.php?format=json&action=parse&prop=text&page=";
+  //regular expression, finds whitespace in a string. "g" means global and returns all matches in a string, not just first one. "s" is for whitespace. The (+) matches one or more occurrences of the one-char regex. Below: Find one or more occurrences of whitespace and return all matches from the string.
   var whitespaceRegex = /\s+/g;
   var totalSummary = "";
   var parsedSummary = "";
