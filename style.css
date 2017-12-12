@@ -36,13 +36,17 @@ button {
 }
 
 a {
-  color: white;
+  color: #fff;
   text-decoration: underline;
   transition: 0.2s all ease-in-out;
 }
 
 a:hover {
   color: #303F9F;
+}
+
+a:visited {
+  color: #fff;
 }
 
 .query-item p {
