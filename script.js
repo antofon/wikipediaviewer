@@ -41,8 +41,9 @@ $("#search-button").click(function(){
       parsedSummary = totalSummary.split("<p>");
       // console.log(totalSummary);
       $("#replaceText").html(parsedSummary[1]);
+      $("#replaceTitle").addClass('capitalize').html(searchVal);
+      //concatenates the English wikipedia website to the /wiki/linkName which is the suffix of the potential links that come up after a search
 
-      //concatenates the English wikipedia website to the wiki/linkName which is the suffix of the potential links that come up after a search
       $('a').attr('href', function(i, hrefVal) {
         return "https://en.wikipedia.org" + hrefVal;
       });
@@ -50,7 +51,19 @@ $("#search-button").click(function(){
       //add target="_blank" to open a new tab for the link
       $('a').attr('target', "_blank");
 
-      $("#replaceTitle").addClass('capitalize').html(searchVal);
+      /*get the first b tag which is the user's search word, and replace it with an a tag whose href is the wikipedia page and the search val concatenated. also include ability to open new tab on click.*/
+      $('b').first().replaceWith(function(searchLink){
+    searchLink = $("<a></a>", {html: $(this).html() });
+    searchLink.attr('target', "_blank");
+    //return the correct a tag with the href
+    return searchLink.attr("href", function () {
+      //return the correct href val from user search
+      return 'https://en.wikipedia.org/wiki/' + searchVal;
+    })
+});
+      $(".query-item").click(function(){
+        return "https://en.wikipedia.org" + "/" + searchVal
+      });
     })
     .fail(function() {
       console.log("error");
