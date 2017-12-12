@@ -39,8 +39,17 @@ $("#search-button").click(function(){
 
       //split at first p tag to capture the first paragraph of the user search
       parsedSummary = totalSummary.split("<p>");
-
+      // console.log(totalSummary);
       $("#replaceText").html(parsedSummary[1]);
+
+      //concatenates the English wikipedia website to the wiki/linkName which is the suffix of the potential links that come up after a search
+      $('a').attr('href', function(i, hrefVal) {
+        return "https://en.wikipedia.org" + hrefVal;
+      });
+
+      //add target="_blank" to open a new tab for the link
+      $('a').attr('target', "_blank");
+
       $("#replaceTitle").addClass('capitalize').html(searchVal);
     })
     .fail(function() {
