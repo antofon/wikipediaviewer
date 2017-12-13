@@ -45,7 +45,8 @@ $("#search-button").click(function(){
         //created same element process as the search value to apply it to the title value for the (read more) link
         titleVal = response.query.search[i].title;
         whitespaceTitleVal = titleVal.replace(whitespaceRegex,"%20");
-          $(".query-container").append("<div class='query-item'><h2>" + response.query.search[i].title + "</h2>" + "<p>" + response.query.search[i].snippet + " <a href=" + "https://en.wikipedia.org/wiki/" + whitespaceTitleVal + " target='_blank'>(read more)</a>" + "</p>" + "</div>");
+        //hide content then append and fade in to have AJAX content fadeIn effect. Since AJAX doesn't need to wait on anything once the response gets back, need to hide content first then fadeIn
+          $(".query-container").hide().append("<div class='query-item'><h2>" + response.query.search[i].title + "</h2>" + "<p>" + response.query.search[i].snippet + " <a href=" + "https://en.wikipedia.org/wiki/" + whitespaceTitleVal + " target='_blank'>(read more)</a>" + "</p>" + "</div>").fadeIn('100');
       }
     })
     .fail(function() {
