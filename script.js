@@ -12,11 +12,10 @@ $(document).ready(function() {
   var totalSummary = "";
   var parsedSummary = "";
   var whitespaceSearchVal = "";
+  var whitespaceTitleVal = "";
+  var titleVal = "";
   // total number of pages to return upon a search
   var pagesCount = 10;
-  var title = "";
-  var snippet = "";
-  var queryItem = "";
 
 $("#search-button").click(function(){
   //grab value entered in search field
@@ -38,62 +37,16 @@ $("#search-button").click(function(){
     })
     .done(function(response) {
       console.log("success");
+      //clear query results before a new one is made
+      $(".query-container").html("");
+
+      /*iterate through for loop and create 10 (default is size not specified in query URL) matches based upon user search*/
       for(var i  = 0; i < pagesCount; i++) {
-$(".query-container").append("<div class='query-item'><h2>" + response.query.search[i].title + "</h2>" + "<p>" + response.query.search[i].snippet + "</p>" + "</div>");
-}
-//       for(var i = 0; i < pagesCount; i++) {
-//         // queryItem = $("<div>", {"class": "query-item" + i});
-//
-// $(".query-item").append("" );
-// $("h2").append( );
-        // queryItem = $("<div class=" + "query-item" + i + ">");
-        // title = $("</h2>", {id: "query-title" + i}).text(response.query.search[i].title);
-        // // console.log(title);
-        // queryItem += title;
-        // snippet = $("<p>", {id: "query-summary" + i}).text(response.query.search[i].snippet);
-        // // console.log(snippet);
-        // title += snippet;
-
-
-        // snippet = $("<p>").text();
-        // snippet.append(".query-container")
-
-        // console.log($queryItem);
-        // $(".query-container").append(queryItem);
-
-      // }
-      //print query data upon successful AJAX request.
-
-      //go in and access ALL content related to search. printing out the wikiURL var and viewing the JSON was helpful in determining how to access content
-//       totalSummary = response.parse.text["*"];
-//
-//       //split at first p tag to capture the first paragraph of the user search
-//       parsedSummary = totalSummary.split("<p>");
-//       // console.log(totalSummary);
-//       $("#replaceText").html(parsedSummary[1]);
-//       $("#replaceTitle").addClass('capitalize').html(searchVal);
-//       //concatenates the English wikipedia website to the /wiki/linkName which is the suffix of the potential links that come up after a search
-//
-//       $('a').attr('href', function(i, hrefVal) {
-//         return "https://en.wikipedia.org" + hrefVal;
-//       });
-//
-//       //add target="_blank" to open a new tab for the link
-//       $('a').attr('target', "_blank");
-//
-//       /*get the first b tag which is the user's search word, and replace it with an a tag whose href is the wikipedia page and the search val concatenated. also include ability to open new tab on click.*/
-//       $('b').first().replaceWith(function(searchLink){
-//     searchLink = $("<a></a>", {html: $(this).html() });
-//     searchLink.attr('target', "_blank");
-//     //return the correct a tag with the href
-//     return searchLink.attr("href", function () {
-//       //return the correct href val from user search
-//       return 'https://en.wikipedia.org/wiki/' + searchVal;
-//     })
-// });
-//       $(".query-item").click(function(){
-//         return "https://en.wikipedia.org" + "/" + searchVal
-//       });
+        //created same element process as the search value to apply it to the title value for the (read more) link
+        titleVal = response.query.search[i].title;
+        whitespaceTitleVal = titleVal.replace(whitespaceRegex,"%20");
+          $(".query-container").append("<div class='query-item'><h2>" + response.query.search[i].title + "</h2>" + "<p>" + response.query.search[i].snippet + " <a href=" + "https://en.wikipedia.org/wiki/" + whitespaceTitleVal + " target='_blank'>(read more)</a>" + "</p>" + "</div>");
+      }
     })
     .fail(function() {
       console.log("error");
