@@ -8,7 +8,6 @@
 /* === CSS TYPOGRAPHY === */
 
 h1 {
-    font-family: 'Cormorant Upright', serif;
     color: #fff;
     font-size: 2.4em;
     text-align: center;
@@ -18,17 +17,15 @@ h1 {
     margin:0;
 }
 
-button {
+button{
   background-color: #FF4081;
   color: #fff;
-  font-size: 1.3em;
+  font-size: 1.4em;
   padding: 2px 15px;
   margin-top: 15px;
   border-radius: 3px;
   border: 2px solid #FF4081;
   transition: .4s all ease-in-out;
-
-
 }
 
 .capitalize {
@@ -41,12 +38,19 @@ a {
   transition: 0.2s all ease-in-out;
 }
 
+a:visited {
+  color: #fff;
+}
+
 a:hover {
   color: #303F9F;
 }
 
-a:visited {
-  color: #fff;
+#random-article {
+  color: #FF4081;
+  text-decoration: none;
+  transition: .4s all ease-in-out;
+  font-size: 1.35em;
 }
 
 .query-item p {
@@ -66,8 +70,13 @@ input {
 
 /* === CSS CLASSES === */
 
-#header-style {}
+.align-text-center {
+  text-align: center;
+}
 
+.mar-top-15 {
+  margin-top: 15px;
+}
 .primary-color {
     background-color: #303F9F;
     height: 85px;
@@ -78,7 +87,6 @@ input {
   margin-top: 50px;
 }
 /* === CSS IDS === */
-
 
 /* === CSS MEDIA QUERIES === */
 @media (min-width: 500px) {
@@ -94,7 +102,7 @@ input {
     width: 300px;
   }
 
-  button {
+  button, #random-article{
     font-size: 1.5em;
   }
 }
@@ -107,11 +115,7 @@ input {
   height: 110px;
 }
 
-
-
-
 }
-
 
 /* === CSS BOX MODEL === */
 .query-container {
@@ -135,23 +139,6 @@ input {
   padding:10px;
 }
 
-
-/*u {
-    text-decoration: none;
-    position: relative;
-}
-u:after {
-    content: '';
-    width: 100%;
-    position: absolute;
-    left: 0;
-    bottom: 1px;
-    /*border-width: 0 0 1px;
-    border-style: solid;
-    border-color: #fff;
-    border: 1px solid #fff;
-}*/
-
 .query-item p {
   text-align: center;
   margin-bottom:0;
@@ -159,34 +146,20 @@ u:after {
   font-weight: 400;
 }
 
-
-/* === CSS POSITIONING === */
-/*.left-pink-block {
-  position: absolute;
-  top:53px;
-  left: 0px;
-  height: 20px;
-  width: 10px;
-  background-color: #FF4081;
-}
-
-.right-pink-block {
-  position: absolute;
-  top:53px;
-  right: 0px;
-  height: 20px;
-  width: 10px;
-  background-color: #FF4081;
-}*/
 /* === CSS PSUEDOCLASSES & PSEUDOELEMENTS === */
-button:hover {
+button:hover  {
   background-color: #fff;
   border: 2px solid #FF4081;
   color: #FF4081;
+  cursor: pointer
+}
+
+#random-article:hover {
+color: #303F9F;
+
 }
 
 .query-item:hover {
   background-color: #FF4081;
   color: #fff;
-  cursor: pointer;
 }
