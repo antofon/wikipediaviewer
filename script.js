@@ -38,24 +38,30 @@ $("#search-button").click(function(){
     })
     .done(function(response) {
       console.log("success");
-
-      for(var i = 0; i < 10; i++) {
-        queryItem = $("<div" + "query-item" + i + ">");
-        title =  $("<h2>" + response.query.search[i].title + "</h2>");
-        console.log(title);
-        queryItem += title;
-        snippet =  $("<p>")
-        snippet += response.query.search[i].snippet;
-        snippet += "</p>";
-        title += snippet;
+      for(var i  = 0; i < pagesCount; i++) {
+$(".query-container").append("<div class='query-item'><h2>" + response.query.search[i].title + "</h2>" + "<p>" + response.query.search[i].snippet + "</p>" + "</div>");
+}
+//       for(var i = 0; i < pagesCount; i++) {
+//         // queryItem = $("<div>", {"class": "query-item" + i});
+//
+// $(".query-item").append("" );
+// $("h2").append( );
+        // queryItem = $("<div class=" + "query-item" + i + ">");
+        // title = $("</h2>", {id: "query-title" + i}).text(response.query.search[i].title);
+        // // console.log(title);
+        // queryItem += title;
+        // snippet = $("<p>", {id: "query-summary" + i}).text(response.query.search[i].snippet);
+        // // console.log(snippet);
+        // title += snippet;
 
 
         // snippet = $("<p>").text();
         // snippet.append(".query-container")
-        queryItem += queryItem + "</div>";
-        $(".query-container").append(queryItem);
 
-      }
+        // console.log($queryItem);
+        // $(".query-container").append(queryItem);
+
+      // }
       //print query data upon successful AJAX request.
 
       //go in and access ALL content related to search. printing out the wikiURL var and viewing the JSON was helpful in determining how to access content
